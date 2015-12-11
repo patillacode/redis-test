@@ -2,7 +2,7 @@ import redis
 
 pool = redis.ConnectionPool(max_connections=500,
                             host="localhost",
-                            db=1,
+                            db=0,
                             port=6379)
 
 connection = redis.Redis(connection_pool=pool)
@@ -13,4 +13,5 @@ pubsub.psubscribe(channel)
 for message in pubsub.listen():
     print message
 
-connection.delete()
+pubsub.close()
+# connection.delete()
