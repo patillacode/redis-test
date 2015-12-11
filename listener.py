@@ -12,3 +12,5 @@ pubsub.psubscribe(channel)
 
 for message in pubsub.listen():
     print message
+
+connection.delete()
